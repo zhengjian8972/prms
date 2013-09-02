@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="login" namespace="/" extends="default">
+		<action name="login" class="com.tseg.prms.web.action.login.LoginAction" method="execute">
+			<result name="success" type="redirect">/project/home</result>
+			<result name="error" >/login.jsp</result>
+			<result name="none" >/login.jsp</result>
+		</action>
+		
+		<action name="logout" class="com.tseg.prms.web.action.login.LoginAction" method="logout">
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+	</package>
+</struts>

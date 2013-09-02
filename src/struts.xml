@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tseg.prms.web.interceptor.AuthorityInterceptor" />
+			<interceptor-stack name="prms-default">
+				<interceptor-ref name="authority" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="prms-default" />
+		<default-action-ref name="index" />
+		<global-results>
+			<result name="error">/WEB-INF/content/commen/error.jsp</result>
+			<result name="login" type="redirect">/login.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="index">
+			<result>login.jsp</result>
+		</action>
+
+	</package>
+	<include file="com/tseg/prms/web/action/project/project.action.xml" />
+	<include file="com/tseg/prms/web/action/report/report.action.xml" />    <!-- Add packages here -->
+	<include file="com/tseg/prms/web/action/login/login.action.xml" />
+	<include file="com/tseg/prms/web/action/member/member.action.xml" />
+
+</struts>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="member" namespace="/member" extends="default">
+		<action name="home" class="com.tseg.prms.web.action.member.MemberAction"
+			method="execute">
+			<result name="success">/WEB-INF/content/member/memberHome.jsp
+			</result>
+		</action>
+		<action name="addMember" class="com.tseg.prms.web.action.member.MemberAction"
+			method="addMember">
+			<result name="success" type="redirectAction">home</result>
+		</action>
+	</package>
+	
+	<package name="memberAjax" namespace="/memberAjax" extends="json-default">
+		<action name="loadMemberList" class="com.tseg.prms.web.action.member.MemberAjaxAction"
+			method="loadMemberList">
+			<result type="json">
+				<param name="root">memberList</param>
+			</result>
+		</action>
+		
+			<action name="loadBriefMemberList" class="com.tseg.prms.web.action.member.MemberAjaxAction"
+			method="loadBriefMemberList">
+			<result type="json">
+				<param name="root">briefMemberList</param>
+			</result>
+		</action>
+		
+		<action name="resMemberPsw" class="com.tseg.prms.web.action.member.MemberAjaxAction"
+			method="resMemberPsw">
+			<result type="json">
+			<param name="root">resStatue</param>
+			</result>
+		</action>
+		
+		<action name="deleteMember" class="com.tseg.prms.web.action.member.MemberAjaxAction"
+			method="deleteMember">
+			<result type="json">
+			<param name="root">deleteStatue</param>
+			</result>
+		</action>
+	</package>
+</struts>

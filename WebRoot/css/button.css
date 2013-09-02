@@ -1,0 +1,29 @@
+.menuIcon.off {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0  -42px
+}
+.menuIcon.on {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0  -28px
+}
+.menuIcon.down {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0;
+}
+.activity-level-High {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/activity-level.png) 0 0;
+	width: 16px;
+	height: 16px;
+}
+.activity-level-Low {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/activity-level.png) 0  -16px;
+	width: 16px;
+	height: 16px;
+}
+.activity-level-Medium {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/activity-level.png)  -16px 0;
+	width: 16px;
+	height: 16px;
+}
+.activity-level-None {
+	background: no-repeat  url(http://www.gstatic.com/codesite/ph/images/activity-level.png)  -16px -16px;
+	width: 16px;
+	height: 16px;
+}

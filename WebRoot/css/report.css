@@ -1,0 +1,98 @@
+.form_label {
+	marigin-left: 5px;
+}
+
+.form_label_right {
+	float: right;
+	margin-right: 30px;
+}
+
+.form_input1 {
+	
+}
+
+.day {
+	display: block;
+	marigin-left: 20px;
+	margin-top: 10px;
+	margin-button: 10px;
+}
+
+.workcontent_ed {
+	width: 505px;
+	margin-left: 5px;
+	margin-right: 20px;
+	line-height: 18px;
+	color: #777;
+	padding: 7px 5px;
+	border: 1px solid #ddd;
+	-webkit-transition: -webkit-box-shadow .2s ease-out;
+	-moz-transition: -moz-box-shadow .2s ease-out;
+	transition: box-shadow .2s ease-out;
+}
+
+.worktime_ed {
+	width: 25px;
+	margin-left: 5px;
+	line-height: 18px;
+	color: #777;
+	padding: 7px 5px;
+	border: 1px solid #ddd;
+	-webkit-transition: -webkit-box-shadow .2s ease-out;
+	-moz-transition: -moz-box-shadow .2s ease-out;
+	transition: box-shadow .2s ease-out;
+}
+
+.form_report_input1 {
+	width: 224px;
+	line-height: 18px;
+	color: #777;
+	padding: 7px 5px;
+	border: 1px solid #ddd;
+	-webkit-transition: -webkit-box-shadow .2s ease-out;
+	-moz-transition: -moz-box-shadow .2s ease-out;
+	transition: box-shadow .2s ease-out;
+}
+
+.form_input2 {
+	display: block;
+}
+
+.form_report_input2 {
+	width: 680px;
+	height: 38px;
+	display: inline;
+	vertical-align: top;
+	margin-top: 5px;
+	padding: 5px;
+	color: #777;
+}
+
+.rateword {
+	font: 12px Arial, Helvetica, sans-serif;
+	line-height: 150%;
+	color: #666;
+}
+
+.nstar {
+	width: 15px;
+	height: 15px;
+	background: url("../img/nst.gif");
+}
+
+.form_button {
+	float: right;
+	top: 10px;
+	margin-right: 30px;
+}
+
+.form_btn {
+	margin-left: 10px;
+	line-height: 18px;
+	height: 25px;
+	width: 80px;
+}
+
+.show_report_main {
+	margin-left: 30px;
+}

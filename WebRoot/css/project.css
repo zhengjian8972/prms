@@ -1,0 +1,57 @@
+.add_project_main {
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 14px;
+}
+
+.form_label {
+	margin-top:20px;
+	marigin-left:5px;
+}
+
+.form_project_input1{
+	width:224px;
+	line-height:18px;
+	color: #777;
+	padding: 7px 5px;
+	width: 224px;
+	border: 1px solid #ddd;
+	-webkit-transition: -webkit-box-shadow .2s ease-out;
+	-moz-transition: -moz-box-shadow .2s ease-out;
+	transition: box-shadow .2s ease-out;
+}
+
+
+.form_project_input2{
+width:500px;
+height:100px;
+display:inline;
+vertical-align:top;
+color: #777;
+}
+
+.form_button{
+float :right;
+margin-right:20px;
+margin-top:13px;
+}
+
+.form_project_btn{
+margin-left:10px;
+line-height:18px;
+height:25px;
+width:80px;
+}
+
+.projectName{
+margin-left:10px;
+color:#C00;     
+}
+
+.group_title{
+font-weight:bold;
+
+}
+.group_op{
+float:right;
+}
