@@ -14,24 +14,29 @@ import com.tseg.prms.service.report.ReportService;
 
 public class ReportAjaxAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String reportList;
 	private String reportId; // 用于存放进行操作的报告ID
 	private String reportContent; // 用于存放报告内容
 	private String deleteStatue;
 
 	public String loadPrivateReports() {
-		String memberId = (String) ActionContext.getContext().getSession().get(
-				"USER_ID");
+		String memberId = (String) ActionContext.getContext().getSession()
+				.get("USER_ID");
 		List<TableReport> reports = new ReportService().findById(Integer
 				.parseInt(memberId));
-		List<Map> reListObject = new ArrayList<Map>();
+		List<Map<String, String>> reListObject = new ArrayList<Map<String, String>>();
 		for (TableReport report : reports) {
-			Map<String,String> reportMap = new HashMap<String,String>();
-			reportMap.put("reportType", ""+report.getReportType());
+			Map<String, String> reportMap = new HashMap<String, String>();
+			reportMap.put("reportType", "" + report.getReportType());
 			reportMap.put("projectName", report.getTableProject()
 					.getProjectName());
-			reportMap.put("date", report.getBuildDate().toString().substring(0,10));
-			reportMap.put("reportId", ""+report.getReportId());
+			reportMap.put("date",
+					report.getBuildDate().toString().substring(0, 10));
+			reportMap.put("reportId", "" + report.getReportId());
 			reListObject.add(reportMap);
 		}
 		JSONArray jo = JSONArray.fromObject(reListObject);
@@ -49,12 +54,12 @@ public class ReportAjaxAction extends ActionSupport {
 		// else return error;
 	}
 
-	public String getReport(){
-		reportContent= new ReportService().getReport(Long.parseLong(reportId));
+	public String getReport() {
+		reportContent = new ReportService().getReport(Long.parseLong(reportId));
 		System.out.println(reportContent);
 		return SUCCESS;
 	}
-	
+
 	public String getReportContent() {
 		return this.reportContent;
 	}

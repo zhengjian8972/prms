@@ -1,7 +1,7 @@
 package com.tseg.prms.persistence;
 
-import java.util.Date;
 import java.util.List;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
@@ -104,7 +104,7 @@ public class TableReportDAO extends BaseHibernateDAO {
 		return findByMemberId(tm.getMemberId());
 	}
 	
-	public List findByMemberId(Integer Id) {
+	public List<TableReport> findByMemberId(Integer Id) {
 		log.debug("finding TableReport instance with memberId: MemberId, value: " + Id);
 		try {
 			String queryString = "from TableReport as model where model.tableMember.memberId"
@@ -136,7 +136,7 @@ public class TableReportDAO extends BaseHibernateDAO {
 		}
 	}
 	
-	public List findByMemberIdAndProjectId(Integer memberId, Integer projectId) {
+	public List<TableReport> findByMemberIdAndProjectId(Integer memberId, Integer projectId) {
 		log.debug("finding TableReport instance with projectId: ProjectId, value: " + projectId +
 				"MemberId: MemberId,value" + memberId);
 		try {

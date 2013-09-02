@@ -10,6 +10,10 @@ public class TableReport implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long reportId;
 	private TableMember tableMember;
 	private TableProject tableProject;

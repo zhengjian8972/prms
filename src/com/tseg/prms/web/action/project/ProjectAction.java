@@ -21,25 +21,23 @@
 
 package com.tseg.prms.web.action.project;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.tseg.prms.model.TableGroup;
-import com.tseg.prms.model.TableMemberGroup;
 import com.tseg.prms.model.TableProject;
 import com.tseg.prms.service.member.MemberService;
 import com.tseg.prms.service.project.ProjectService;
 import com.tseg.prms.utility.SendEmailUtil;
 
 public class ProjectAction extends ActionSupport {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String projectName;
 	private String projectAdmin;
 	private String projectDesc;
@@ -50,10 +48,10 @@ public class ProjectAction extends ActionSupport {
 
 	public String execute() throws Exception {
 		projectNum = new ProjectService().getProjects().size() + "";
-		
+
 		List<TableProject> projectList = new ProjectService().getProjects();
-		Map projects =new HashMap();
-		for(TableProject project : projectList){
+		Map<Integer, String> projects = new HashMap<Integer, String>();
+		for (TableProject project : projectList) {
 			projects.put(project.getProjectId(), project.getProjectName());
 		}
 		ActionContext.getContext().getSession().put("allProjectMap", projects);
@@ -62,25 +60,30 @@ public class ProjectAction extends ActionSupport {
 
 	public String addProject() throws Exception {
 		ProjectService ps = new ProjectService();
-		ps.addProject(projectName, projectAdmin.trim().substring(0, projectAdmin.indexOf(' ')), projectDesc);
+		ps.addProject(projectName,
+				projectAdmin.trim().substring(0, projectAdmin.indexOf(' ')),
+				projectDesc);
 		return SUCCESS;
 	}
 
-	public String addGroupMember(){
-		String projectId = (String) ActionContext.getContext().getSession().get("CURRENT_PROJECT");
+	public String addGroupMember() {
+		String projectId = (String) ActionContext.getContext().getSession()
+				.get("CURRENT_PROJECT");
 		new ProjectService().addMemberToProject(projectId, memberId, 0);
-		
+
 		return SUCCESS;
 	}
-	public String addTask(){
+
+	public String addTask() {
 		String email = new MemberService().getMemberEmail(taskMemberId);
 		String name = new MemberService().getMemberName(taskMemberId);
-		String projectId = (String) ActionContext.getContext().getSession().get("CURRENT_PROJECT");
+		String projectId = (String) ActionContext.getContext().getSession()
+				.get("CURRENT_PROJECT");
 		String projectName = new ProjectService().getProjectName(projectId);
-		SendEmailUtil.sendTaskMail(email, name, projectName,taskContent  );
+		SendEmailUtil.sendTaskMail(email, name, projectName, taskContent);
 		return SUCCESS;
 	}
-	
+
 	public String getProjectName() {
 		return projectName;
 	}
@@ -137,5 +140,4 @@ public class ProjectAction extends ActionSupport {
 		this.taskContent = taskContent;
 	}
 
-	
 }

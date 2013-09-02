@@ -10,7 +10,6 @@
 		<div class="hostedBy" style="margin-top: -20px;">
 			<span style="vertical-align: top;">Powered by <a
 				href="http://www.renren.com/234803681">ZhengJian</a>&nbsp; <a
-				href="http://www.renren.com/234079982">ZhangRenBo</a>&nbsp;<a
-				href="http://www.renren.com/257622847">YuXingLong</a> </span>
+				href="http://www.renren.com/234079982">ZhangRenBo</a>&nbsp; </span>
 		</div>
 		</div>

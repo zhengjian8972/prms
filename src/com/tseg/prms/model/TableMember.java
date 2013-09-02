@@ -11,12 +11,16 @@ public class TableMember implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer memberId;
 	private String memberName;
 	private String password;
 	private String email;
-	private Set<TableReport> tableReports = new HashSet(0);
-	private Set<TableMemberGroup> tableMemberGroups = new HashSet(0);
+	private Set<TableReport> tableReports = new HashSet<TableReport>(0);
+	private Set<TableMemberGroup> tableMemberGroups = new HashSet<TableMemberGroup>(0);
 
 	// Constructors
 

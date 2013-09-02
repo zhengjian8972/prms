@@ -11,12 +11,16 @@ public class TableGroup implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer groupId;
 	private TableProject tableProject;
 	private Integer groupLevel;
 	private String groupName;
 	private String groupDescription;
-	private Set tableMemberGroups = new HashSet(0);
+	private Set<TableMemberGroup> tableMemberGroups = new HashSet<TableMemberGroup>(0);
 
 	// Constructors
 
@@ -36,7 +40,7 @@ public class TableGroup implements java.io.Serializable {
 	/** full constructor */
 	public TableGroup(Integer groupId, TableProject tableProject,
 			Integer groupLevel, String groupName, String groupDescription,
-			Set tableMemberGroups) {
+			Set<TableMemberGroup> tableMemberGroups) {
 		this.groupId = groupId;
 		this.tableProject = tableProject;
 		this.groupLevel = groupLevel;
@@ -87,11 +91,11 @@ public class TableGroup implements java.io.Serializable {
 		this.groupDescription = groupDescription;
 	}
 
-	public Set getTableMemberGroups() {
+	public Set<TableMemberGroup> getTableMemberGroups() {
 		return this.tableMemberGroups;
 	}
 
-	public void setTableMemberGroups(Set tableMemberGroups) {
+	public void setTableMemberGroups(Set<TableMemberGroup> tableMemberGroups) {
 		this.tableMemberGroups = tableMemberGroups;
 	}
 

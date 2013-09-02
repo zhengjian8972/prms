@@ -15,15 +15,16 @@ public class ReportService {
 	public static final int MONTH_REPORT = 1;
 	public static final int YEAR_REPORT = 2;
 
-	public void writeReport(String projectId, String memberId, String date, String content, int type) {
+	public void writeReport(String projectId, String memberId, String date,
+			String content, int type) {
 		long id = System.currentTimeMillis();
 		TableProject tp = new TableProjectDAO().findById(projectId);
-		if(tp == null)
+		if (tp == null)
 			return;
 		TableMember tm = new TableMemberDAO().findById(memberId);
-		if(tm == null)
+		if (tm == null)
 			return;
-		
+
 		TableReport tr = new TableReport();
 		tr.setReportId(id);
 		tr.setTableProject(tp);
@@ -31,41 +32,45 @@ public class ReportService {
 		tr.setBuildDate(new Date(date));
 		tr.setContent(content);
 		tr.setReportType(type);
-		
+
 		TableReportDAO trd = new TableReportDAO();
 		trd.save(tr);
 	}
-	
-	//删除周报
+
+	// 删除周报
 	public void deleteReport(long id) {
 		TableReportDAO trd = new TableReportDAO();
 		System.out.println("DELETE GO");
 		TableReport tr = trd.findById(id);
-		
+
 		trd.delete(tr);
 	}
-	//根据周报ID获取周报内容
-	public String getReport(long id){
-		TableReportDAO trd =new TableReportDAO();
+
+	// 根据周报ID获取周报内容
+	public String getReport(long id) {
+		TableReportDAO trd = new TableReportDAO();
 		TableReport tr = trd.findById(id);
 		return tr.getContent();
 	}
-	
-	
-	//根据用户获取周报
+
+	// 根据用户获取周报
 	public List<TableReport> findById(Integer memberId) {
 		return new TableReportDAO().findByMemberId(memberId);
 	}
-	//根据用户获取周报数量
+
+	// 根据用户获取周报数量
 	public int getReportsNum(Integer memberId) {
-		return findById(memberId).size()+0;
+		return findById(memberId).size() + 0;
 	}
-	//根据用户及项目获取周报
+
+	// 根据用户及项目获取周报
 	public List<TableReport> findById(Integer memberId, Integer projectId) {
-		return  new TableReportDAO().findByMemberIdAndProjectId(memberId, projectId);
+		return new TableReportDAO().findByMemberIdAndProjectId(memberId,
+				projectId);
 	}
-	//根据用户及项目获取周报数量
+
+	// 根据用户及项目获取周报数量
 	public int getReportsNum(Integer memberId, Integer projectId) {
-		return findById(memberId,projectId).size();
+		return findById(memberId, projectId).size();
 	}
 }

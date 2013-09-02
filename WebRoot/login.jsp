@@ -10,6 +10,7 @@
 <meta name="author" content="tseg.org"/>
 <script type="text/javascript" src="tool/jquery-1.6.2.min.js"></script>
 <script type="text/javascript" src="js/login_validation.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
 <link type="text/css" rel="stylesheet" href="css/core.css"/>
 <style>
 /* initialize */
@@ -95,7 +96,7 @@ color:#C00;
             
         </p>
         <p class="text"><input name="password" value="" maxlength="100" class="ulib-r3 alittle"  type="password" alt="密码" id="password" /> <span id="password-info" class="prompt">你的密码</span></p>
-        <p class="check slight"><label><input id="autologin" name="rememberme" value="1"  type="checkbox"/>下次自动登录</label>  <span style = "margin-left:20px; color:#000;">	<s:property value="errorInfo" /> </span></p>
+        <p class="check slight"><label><input id="rememberme" name="rememberme" value="1"  type="checkbox"/>记住密码</label>  <span style = "margin-left:20px; color:#000;">	<s:property value="errorInfo" /> </span></p>
         <p class="btn"><input type="submit" class="ulib-btn" style ="margin-left:-15px;" value="登录系统"/> </p>
         
         </form>

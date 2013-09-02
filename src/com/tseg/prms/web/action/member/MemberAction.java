@@ -21,14 +21,15 @@
 
 package com.tseg.prms.web.action.member;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.tseg.prms.service.member.MemberService;
-import com.tseg.prms.service.project.ProjectService;
-import com.tseg.prms.service.report.ReportService;
 
 public class MemberAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String memberId;
 	private String memberName;
 	private String memberNum;

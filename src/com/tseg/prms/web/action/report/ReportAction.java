@@ -21,14 +21,9 @@
 
 package com.tseg.prms.web.action.report;
 
-import java.sql.Time;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import net.sf.json.JSONArray;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -38,6 +33,10 @@ import com.tseg.prms.service.report.ReportService;
 
 public class ReportAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String content;
 	private String reportDate;
 	private String project;
@@ -52,7 +51,7 @@ public class ReportAction extends ActionSupport {
 		reportNum = ""+new ReportService().getReportsNum(Integer.parseInt(userId));
 		
 		Set<TableProject> projects = new MemberService().getProjects(Integer.parseInt(userId));
-		Map participateProjects =new HashMap();
+		Map<Integer, String> participateProjects =new HashMap<Integer, String>();
 		for(TableProject project :projects){
 			participateProjects.put( project.getProjectId(),project.getProjectName());
 		}

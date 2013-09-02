@@ -27,6 +27,10 @@ import com.tseg.prms.service.member.MemberService;
 
 public class LoginAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String userId = "";
 	private String password = "";
 	private String errorInfo = "";
@@ -43,18 +47,19 @@ public class LoginAction extends ActionSupport {
 			return ERROR;
 		} else if (loginInfo.equals(SUCCESS)) {
 			String memberName = new MemberService().getMemberName(userId);
-			ActionContext.getContext().getSession().put("MEMBER_NAME", memberName);
+			ActionContext.getContext().getSession()
+					.put("MEMBER_NAME", memberName);
 			return SUCCESS;
 		}
 		return ERROR;
 		// return SUCCESS;
 	}
 
-	public String logout()  {
+	public String logout() {
 		ActionContext.getContext().getSession().clear();
-		return SUCCESS; 
+		return SUCCESS;
 	}
-	
+
 	public String getUserId() {
 		return userId;
 	}

@@ -124,7 +124,7 @@ public class TableMemberDAO extends BaseHibernateDAO {
 		return findByProperty(PASSWORD, password);
 	}
 
-	public List findAll() {
+	public List<TableMember> findAll() {
 		log.debug("finding all TableMember instances");
 		try {
 			String queryString = "from TableMember";

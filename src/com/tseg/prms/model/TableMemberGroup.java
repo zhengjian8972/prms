@@ -8,6 +8,10 @@ public class TableMemberGroup implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer memberGroupId;
 	private TableMember tableMember;
 	private TableGroup tableGroup;

@@ -1,7 +1,7 @@
 package com.tseg.prms.persistence;
 
 import java.util.List;
-import java.util.Set;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
@@ -55,6 +55,7 @@ public class TableProjectDAO extends BaseHibernateDAO {
 		}
 		trans.commit();
 	}
+
 	public TableProject findById(java.lang.String id) {
 		return findById(Integer.parseInt(id));
 	}
@@ -74,9 +75,9 @@ public class TableProjectDAO extends BaseHibernateDAO {
 	public List findByExample(TableProject instance) {
 		log.debug("finding TableProject instance by example");
 		try {
-			List results = getSession().createCriteria(
-					"com.tseg.prms.model.TableProject").add(
-					Example.create(instance)).list();
+			List results = getSession()
+					.createCriteria("com.tseg.prms.model.TableProject")
+					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -109,7 +110,7 @@ public class TableProjectDAO extends BaseHibernateDAO {
 		return findByProperty(PROJECT_DESCRIPTION, projectDescription);
 	}
 
-	public List findAll() {
+	public List<TableProject> findAll() {
 		log.debug("finding all TableProject instances");
 		try {
 			String queryString = "from TableProject";

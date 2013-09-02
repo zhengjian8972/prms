@@ -7,20 +7,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.opensymphony.xwork2.ActionContext;
+import net.sf.json.JSONArray;
+
 import com.opensymphony.xwork2.ActionSupport;
-import com.tseg.prms.model.TableGroup;
 import com.tseg.prms.model.TableMember;
 import com.tseg.prms.model.TableMemberGroup;
-import com.tseg.prms.model.TableProject;
-import com.tseg.prms.model.TableReport;
 import com.tseg.prms.service.member.MemberService;
-import com.tseg.prms.service.report.ReportService;
-
-import net.sf.json.JSONArray;
 
 public class MemberAjaxAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String memberList;
 	private String briefMemberList;
 	private String delMemberId;
@@ -28,10 +27,10 @@ public class MemberAjaxAction extends ActionSupport {
 	private String resStatue;
 	private String deleteStatue;
 
-	//导出所有成员的详细信息
+	// 导出所有成员的详细信息
 	public String loadMemberList() {
 		List<TableMember> members = new MemberService().getMembers();
-		List<Map> memListObject = new ArrayList<Map>();
+		List<Map<String, String>> memListObject = new ArrayList<Map<String, String>>();
 		for (TableMember member : members) {
 			Map<String, String> memberMap = new HashMap<String, String>();
 			memberMap.put("memberId", "" + member.getMemberId());
@@ -40,12 +39,13 @@ public class MemberAjaxAction extends ActionSupport {
 			Set<TableMemberGroup> tgSet = member.getTableMemberGroups();
 			if (tgSet.size() > 0) {
 				Iterator<TableMemberGroup> itg = tgSet.iterator();
-				while(itg.hasNext()){
+				while (itg.hasNext()) {
 					TableMemberGroup memberGroup = itg.next();
-					projects += (memberGroup.getTableGroup().getTableProject().getProjectName() + ";	");
+					projects += (memberGroup.getTableGroup().getTableProject()
+							.getProjectName() + ";	");
 				}
-				memberMap.put("memberProject", projects.substring(0, projects
-						.length()-1));
+				memberMap.put("memberProject",
+						projects.substring(0, projects.length() - 1));
 			} else
 				memberMap.put("memberProject", "无");
 			memListObject.add(memberMap);
@@ -57,14 +57,16 @@ public class MemberAjaxAction extends ActionSupport {
 		// else return error;
 	}
 
-	public String loadBriefMemberList(){
+	public String loadBriefMemberList() {
 		List<TableMember> members = new MemberService().getMembers();
-		List<Map> memListObject = new ArrayList<Map>();
-		for(TableMember member :members){
-			Map memberMap = new HashMap();
-			memberMap.put("value", ""+member.getMemberId()+" ("+member.getMemberName()+")");
-			memberMap.put("label", "用户ID："+member.getMemberId());
-			memberMap.put("desc",member.getMemberName());
+		List<Map<String, String>> memListObject = new ArrayList<Map<String, String>>();
+		for (TableMember member : members) {
+			Map<String, String> memberMap = new HashMap<String, String>();
+			memberMap.put("value",
+					"" + member.getMemberId() + " (" + member.getMemberName()
+							+ ")");
+			memberMap.put("label", "用户ID：" + member.getMemberId());
+			memberMap.put("desc", member.getMemberName());
 			memListObject.add(memberMap);
 		}
 		JSONArray jo = JSONArray.fromObject(memListObject);
@@ -72,7 +74,7 @@ public class MemberAjaxAction extends ActionSupport {
 		System.out.println(briefMemberList);
 		return SUCCESS;
 	}
-	
+
 	public String resMemberPsw() {
 		System.out.println("reset" + resMemberId);
 		new MemberService().resPassword(resMemberId);
@@ -80,8 +82,7 @@ public class MemberAjaxAction extends ActionSupport {
 		return SUCCESS;
 		// else return error;
 	}
-	
-	
+
 	public String deleteMember() {
 		System.out.println("delete" + delMemberId);
 		new MemberService().deleteMember(delMemberId);
@@ -97,8 +98,6 @@ public class MemberAjaxAction extends ActionSupport {
 	public void setMemberList(String memberList) {
 		this.memberList = memberList;
 	}
-	
-	
 
 	public String getBriefMemberList() {
 		return briefMemberList;

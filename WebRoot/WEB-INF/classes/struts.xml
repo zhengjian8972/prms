@@ -7,7 +7,7 @@
 
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
-	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
 
 	<package name="default" namespace="/" extends="struts-default">
 
@@ -37,9 +37,9 @@
 		</action>
 
 	</package>
-	<include file="com/tseg/prms/web/action/project/project.action.xml" />
-	<include file="com/tseg/prms/web/action/report/report.action.xml" />    <!-- Add packages here -->
 	<include file="com/tseg/prms/web/action/login/login.action.xml" />
+	<include file="com/tseg/prms/web/action/project/project.action.xml" />
+	<include file="com/tseg/prms/web/action/report/report.action.xml" />
 	<include file="com/tseg/prms/web/action/member/member.action.xml" />
 
 </struts>

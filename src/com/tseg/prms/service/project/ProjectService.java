@@ -34,7 +34,7 @@ public class ProjectService {
 		if(tm == null) return "noadmin";
 		System.out.print("you zhege ren a ");
 		TableGroupDAO tg = new TableGroupDAO();
-		List<TableGroup> gl = new ArrayList();
+		List<TableGroup> gl = new ArrayList<TableGroup>();
 		gl = tg.findByProjectId(Integer.parseInt(projectId));
 		for(TableGroup g : gl){
 			if(g.getGroupLevel() == (groupLevel))

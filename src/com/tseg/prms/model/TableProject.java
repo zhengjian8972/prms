@@ -11,11 +11,15 @@ public class TableProject implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer projectId;
 	private String projectName;
 	private String projectDescription;
 	private Set tableReports = new HashSet(0);
-	private Set<TableGroup> tableGroups = new HashSet(0);
+	private Set<TableGroup> tableGroups = new HashSet<TableGroup>(0);
 
 	// Constructors
 

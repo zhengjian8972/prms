@@ -93,7 +93,7 @@ public class TableGroupDAO extends BaseHibernateDAO {
 		return findByProjectId(tp.getProjectId());
 	}
 	
-	public List findByProjectId(Integer Id) {
+	public List<TableGroup> findByProjectId(Integer Id) {
 		log.debug("finding TableGroup instance with projcetId: ProjectId, value: " + Id);
 		try {
 			String queryString = "from TableGroup as model where model.tableProject.projectId"

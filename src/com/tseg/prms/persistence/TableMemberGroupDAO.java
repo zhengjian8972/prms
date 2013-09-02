@@ -1,6 +1,7 @@
 package com.tseg.prms.persistence;
 
 import java.util.List;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
@@ -71,9 +72,9 @@ public class TableMemberGroupDAO extends BaseHibernateDAO {
 	public List findByExample(TableMemberGroup instance) {
 		log.debug("finding TableMemberGroup instance by example");
 		try {
-			List results = getSession().createCriteria(
-					"com.tseg.prms.model.TableMemberGroup").add(
-					Example.create(instance)).list();
+			List results = getSession()
+					.createCriteria("com.tseg.prms.model.TableMemberGroup")
+					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -97,12 +98,14 @@ public class TableMemberGroupDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
+
 	public List findByMember(TableMember tp) {
 		return findByMemberId(tp.getMemberId());
 	}
-	
-	public List findByMemberId(Integer Id) {
-		log.debug("finding TableMemberGroup instance with memberId: MemberId, value: " + Id);
+
+	public List<TableMemberGroup> findByMemberId(Integer Id) {
+		log.debug("finding TableMemberGroup instance with memberId: MemberId, value: "
+				+ Id);
 		try {
 			String queryString = "from TableMemberGroup as model where model.tableMember.memberId"
 					+ "= ?";
@@ -114,13 +117,14 @@ public class TableMemberGroupDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
-	
+
 	public List findByGroup(TableGroup tg) {
 		return findByGroupId(tg.getGroupId());
 	}
-	
+
 	public List findByGroupId(Integer Id) {
-		log.debug("finding TableMemberGroup instance with groupId: GroupId, value: " + Id);
+		log.debug("finding TableMemberGroup instance with groupId: GroupId, value: "
+				+ Id);
 		try {
 			String queryString = "from TableMemberGroup as model where model.tableGroup.groupId"
 					+ "= ?";
